@@ -2,7 +2,6 @@ const fetch = require('node-fetch');
 const DiscordRPC = require('discord-rpc');
 const config = require('./config.json');
 const clientId = "858518597848268870";
-const clientSecret = "6c0ZZ_KZXcwLTmHxuzB1YbXo4a8flnUb";
 const user = 'tsuuuuki';
 const key = config.key;
 const audioScrobblerAPI = `http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${user}&api_key=${key}&format=json`
@@ -63,4 +62,4 @@ client.on('ready', () => {
     setInterval(update, 3000)
 })
 
-client.login({ clientId, clientSecret }).catch(console.error);
+client.login({ clientId }).catch(console.error);
