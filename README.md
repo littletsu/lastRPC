@@ -1,5 +1,5 @@
 # lastRPC 
-Discord Rich Presence for Last.fm
+Rewritten Discord Rich Presence for Last.fm
 
 # config
 create config.json<br>
