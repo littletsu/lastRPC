@@ -10,8 +10,10 @@ const audioScrobblerAPI = new AudioScrobblerAPI(config);
 
 client.on('ready', async () => {
     console.log("RPC Ready");
-    let recentTracks = await audioScrobblerAPI.request('user.getrecenttracks');
-    console.log(recentTracks.recenttracks.track[0]);
+    audioScrobblerAPI.startListeningEmit();
+    audioScrobblerAPI.on('new_listening', track => {
+        console.log(track.name)
+    })
 })
 client.emit('ready');
 //client.login({ clientId: CLIENT_ID }).catch(console.error);
