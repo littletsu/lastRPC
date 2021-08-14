@@ -27,6 +27,13 @@ module.exports = class AudioScrobblerAPI extends EventEmitter {
     startListeningEmit() { 
         let getUserRecentTracksInterval = async () => {
             let userListeningTrack = await this._getUserListeningTrack();
+            if(userListeningTrack == null) {
+                if(this._lastListeningTrack !== null) {
+                    this._lastListeningTrack = null;
+                    this.emit('stop_listening')
+                }
+                return;
+            };
             if(!tracksAreEqual(userListeningTrack, this._lastListeningTrack)) {
                 this._lastListeningTrack = userListeningTrack;
                 this.emit('new_listening', userListeningTrack);
