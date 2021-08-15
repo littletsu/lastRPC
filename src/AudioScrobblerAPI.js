@@ -72,7 +72,7 @@ module.exports = class AudioScrobblerAPI extends EventEmitter {
     }
 
     // http stuff
-    
+
     /**
      * GET a method from the Last.fm API
      * @param {string} method - A method from the Last.fm API
@@ -84,10 +84,10 @@ module.exports = class AudioScrobblerAPI extends EventEmitter {
     }
 
     /**
-     * Internal function for converting an object to URL query parameters
+     * Internal function for converting an object to URL safe query parameters
      * @param {string} method - Method from the Last.fm API, used to provide default parameters
      * @param {object} params - Query parameters such as user, artist, track, etc..
-     * @returns 
+     * @returns A string of parameters ready to be requested
      */
     _parseParams(method, params) {
         if(method.startsWith("user.") && (!params.user)) {
